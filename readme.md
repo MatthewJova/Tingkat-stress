@@ -5,9 +5,15 @@ tim:
 - Vic Jeremy P
 
 Gambar:
-- ![Login](login.png)
-- ![Tabel Hak Akses](hak_akses.png)
-- ![Grafik Jumlah Stress](grafik_jum_stres.png)
-- ![Tabel Hasil Tes Admin](hasil_tes_adm.png)
-- ![Soal Tes](soal_tes.png)
-- ![Hasil Tes Individu](hasil_tes.png)
+- Login Page
+  ![Login](login.png)
+- Tabel Hak Akses
+  ![Tabel Hak Akses](hak_akses.png)
+- Grafik jumlah stress
+  ![Grafik Jumlah Stress](grafik_jum_stres.png)
+- Tabel Hasil Tes Admin
+  ![Tabel Hasil Tes Admin](hasil_tes_adm.png)
+- Soal
+  ![Soal Tes](soal_tes.png)
+- Hasil Tes Individu
+  ![Hasil Tes Individu](hasil_tes.png)
