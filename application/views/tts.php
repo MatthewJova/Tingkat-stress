@@ -24,116 +24,259 @@
           <!-- left column -->
           <div class="col-md-12">
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card card-success">
               <div class="card-header">
-                <h3 class="card-title">Form</h3>
+                <h3 class="card-title">Interpersonal</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <form method="post" action="<?php echo base_url(); ?>index.php/tes/proses" enctype="multipart/form-data">
                 <div class="card-body">
-                  <div class="form-group">
-                     <div class="card-body">
-                    <label for="soal1">1. Dalam sebulan terakhir, seberapa sering Anda merasa kesal karena sesuatu yang terjadi secara tidak terduga?</label><br>
-
-                    <p><input type="radio" id="jawaban1-sering" name="jawaban1" value="sering" class="form-radio-input">Sering</p>
-
-                    <p><input type="radio" id="jawaban1-kadang" name="jawaban1" value="kadang" class="form-radio-input">Kadang-kadang</p>
-
-                    <p><input type="radio" id="jawaban1-tidak-pernah" name="jawaban1" value="tidak pernah" class="form-radio-input">Tidak Pernah</p>
-
-                    
-
-                    <label for="soal2">2. Dalam sebulan terakhir, seberapa sering Anda merasa bahwa Anda tidak dapat mengendalikan hal-hal yang penting dalam hidup Anda?</label><br>
-
-                    <p><input type="radio" id="jawaban2-sering" name="jawaban2" value="sering" class="form-radio-input">Sering</p>
-
-                    <p><input type="radio" id="jawaban2-kadang" name="jawaban2" value="kadang" class="form-radio-input">Kadang-kadang</p>
-
-                    <p><input type="radio" id="jawaban2-tidak-pernah" name="jawaban2" value="tidak pernah" class="form-radio-input">Tidak Pernah</p>
-
-                    <br>
-
-                    <label for="soal3">3. Dalam sebulan terakhir, seberapa sering Anda merasa gelisah dan stres?</label><br>
-                    
-                    <p><input type="radio" id="jawaban3-sering" name="jawaban3" value="sering" class="form-radio-input">Sering</p>
-
-                    <p><input type="radio" id="jawaban3-kadang" name="jawaban3" value="kadang" class="form-radio-input">Kadang-kadang</p>
-                    <p><input type="radio" id="jawaban3-tidak-pernah" name="jawaban3" value="tidak pernah" class="form-radio-input">Tidak Pernah</p>
-
-                    <br>
-
-                    <label for="soal4">4. Dalam sebulan terakhir, seberapa sering Anda merasa yakin terhadap kemampuan Anda dalam menangani masalah pribadi?</label><br>
-                    
-                    <p><input type="radio" id="jawaban4-sering" name="jawaban4" value="sering" class="form-radio-input">Sering</p>
-
-                    <p><input type="radio" id="jawaban4-kadang" name="jawaban4" value="kadang" class="form-radio-input">Kadang-kadang</p>
-
-                    <p><input type="radio" id="jawaban4-tidak-pernah" name="jawaban4" value="tidak pernah" class="form-radio-input">Tidak Pernah</p>
-                    
-                    <br>
-
-                    <label for="soal5">5. Dalam sebulan terakhir, seberapa sering Anda merasa bahwa segala sesuatu berjalan sesuai keinginan Anda?</label><br>
-                    
-                    <p><input type="radio" id="jawaban5-sering" name="jawaban5" value="sering" class="form-radio-input">Sering</p>
-
-                    <p><input type="radio" id="jawaban5-kadang" name="jawaban5" value="kadang" class="form-radio-input">Kadang-kadang</p>
-
-                    <p><input type="radio" id="jawaban5-tidak-pernah" name="jawaban5" value="tidak pernah" class="form-radio-input">Tidak Pernah</p>
-
-                    <br>
-
-                    <label for="soal6">6. Dalam sebulan terakhir, seberapa sering Anda menemukan bahwa Anda tidak dapat mengatasi segala hal yang harus dilakukan?</label><br>
-                    
-                    <p><input type="radio" id="jawaban6-sering" name="jawaban6" value="sering" class="form-radio-input">Sering</p>
-
-                    <p><input type="radio" id="jawaban6-kadang" name="jawaban6" value="kadang" class="form-radio-input">Kadang-kadang</p>
-
-                    <p><input type="radio" id="jawaban6-tidak-pernah" name="jawaban6" value="tidak pernah" class="form-radio-input">Tidak Pernah</p>
-
-                    <br>
-
-                    <label for="soal7">7. Dalam sebulan terakhir, seberapa sering Anda mampu mengendalikan hal-hal yang mengganggu dalam hidup Anda?</label><br>
-                    
-                    <p><input type="radio" id="jawaban7-sering" name="jawaban7" value="sering" class="form-radio-input">Sering</p>
-
-                    <p><input type="radio" id="jawaban7-kadang" name="jawaban7" value="kadang" class="form-radio-input">Kadang-kadang</p>
-
-                    <p><input type="radio" id="jawaban7-tidak-pernah" name="jawaban7" value="tidak pernah" class="form-radio-input">Tidak Pernah</p>
-
-                    <br>
-
-                    <label for="soal8">8. Dalam sebulan terakhir, seberapa sering Anda merasa bahwa Anda dapat mengendalikan hal-hal dalam hidup Anda?</label><br>
-                    
-                    <p><input type="radio" id="jawaban8-sering" name="jawaban8" value="sering" class="form-radio-input">Sering</p>
-
-                    <p><input type="radio" id="jawaban8-kadang" name="jawaban8" value="kadang" class="form-radio-input">Kadang-kadang</p>
-
-                    <p><input type="radio" id="jawaban8-tidak-pernah" name="jawaban8" value="tidak pernah" class="form-radio-input">Tidak Pernah</p>
-
-                    <br>
-
-                    <label for="soal9">9. Dalam sebulan terakhir, seberapa sering Anda merasa marah karena hal-hal yang terjadi di luar kendali Anda?</label><br>
-                    
-                    <p><input type="radio" id="jawaban9-sering" name="jawaban9" value="sering" class="form-radio-input">Sering</p>
-
-                    <p><input type="radio" id="jawaban9-kadang" name="jawaban9" value="kadang" class="form-radio-input">Kadang-kadang</p>
-
-                    <p><input type="radio" id="jawaban9-tidak-pernah" name="jawaban9" value="tidak pernah" class="form-radio-input">Tidak Pernah</p>
-
-                    <br>
-
-                    <label for="soal10">10. Dalam sebulan terakhir, seberapa sering Anda merasa ada berbagai kesulitan yang menumpuk begitu banyak sehingga Anda tidak dapat mengatasinya?</label><br>
-                    
-                    <p><input type="radio" id="jawaban10-sering" name="jawaban10" value="sering" class="form-radio-input">Sering</p>
-
-                    <p><input type="radio" id="jawaban10-kadang" name="jawaban10" value="kadang" class="form-radio-input">Kadang-kadang</p>
-
-                    <p><input type="radio" id="jawaban10-tidak-pernah" name="jawaban10" value="tidak pernah" class="form-radio-input">Tidak Pernah</p>
-                  </div>
-
+                <div class="form-group">
+                    <div class="card-body">
+                        <label for="soal1" id="soal1" data-value= "0.8">1. Saya sering merasa tertekan oleh tuntutan orang tua yang menyuruh saya segera wisuda</label><br>
+                        
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary">
+                                <input type="radio" id="jawaban1-sering" name="jawaban1" value="sering" class="form-radio-input">
+                                <label for="jawaban1-sering">
+                                </label>Sering
+                            </div>
+                            <div class="icheck-primary">
+                                <input type="radio" id="jawaban1-kadang" name="jawaban1" value="kadang" class="form-radio-input">
+                                <label for="jawaban1-kadang">
+                                </label>Kadang-kadang
+                            </div>
+                            <div class="icheck-primary">
+                                <input type="radio" id="jawaban1-tidak-pernah" name="jawaban1" value="tidak pernah" class="form-radio-input">
+                                <label for="jawaban1-tidak-pernah">
+                                </label>Tidak Pernah
+                            </div>
+                        </div>
+                    </div>
                   </div>
                 </div>
+              </div>
+                    
+              <div class="card card-success">
+                <div class="card-header">
+                  <h3 class="card-title">Interpersonal</h3>
+                </div>
+                  <div class="card-body">
+                    <div class="form-group">
+                      <div class="card-body">
+                    <label for="soal2" id="soal2" data-value= "0.4">2. Teman saya sering mengajak saya bermain game online sehingga saysa tidak fokus mengerjakan tugas dan skripsi</label><br>
+
+                    <div class="form-group clearfix">
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban2-sering" name="jawaban2" value="sering" class="form-radio-input">
+                                <label for="jawaban2-sering">
+                                </label>Sering
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban2-kadang" name="jawaban2" value="kadang" class="form-radio-input">
+                                <label for="jawaban2-kadang">
+                                </label>Kadang-kadang
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban2-tidak-pernah" name="jawaban2" value="tidak pernah" class="form-radio-input">
+                                <label for="jawaban2-tidak-pernah">
+                                </label>Tidak Pernah
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="card card-success">
+                <div class="card-header">
+                  <h3 class="card-title">Intrapersonal</h3>
+                </div>
+                  <div class="card-body">
+                    <div class="form-group">
+                      <div class="card-body">
+                    <label for="soal3" id="soal3" data-value= "0">3. Saya sering mengalami kesulitan tidur dan sering begadang</label><br>
+                    
+                    <div class="form-group clearfix">
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban3-sering" name="jawaban3" value="sering" class="form-radio-input">
+                                <label for="jawaban3-sering">
+                                </label>Sering
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban3-kadang" name="jawaban3" value="kadang" class="form-radio-input">
+                                <label for="jawaban3-kadang">
+                                </label>Kadang-kadang
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban3-tidak-pernah" name="jawaban3" value="tidak pernah" class="form-radio-input">
+                                <label for="jawaban3-tidak-pernah">
+                                </label>Tidak Pernah
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="card card-success">
+                <div class="card-header">
+                  <h3 class="card-title">Intrapersonal</h3>
+                </div>
+                  <div class="card-body">
+                    <div class="form-group">
+                      <div class="card-body">
+                    <label for="soal4" id="soal4" data-value= "0.4">4. Saya sering mengalami kesulitan keuangan dan keuangan terbatas</label><br>
+                    
+                     <div class="form-group clearfix">
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban4-sering" name="jawaban4" value="sering" class="form-radio-input">
+                                <label for="jawaban4-sering">
+                                </label>Sering
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban4-kadang" name="jawaban4" value="kadang" class="form-radio-input">
+                                <label for="jawaban4-kadang">
+                                </label>Kadang-kadang
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban4-tidak-pernah" name="jawaban4" value="tidak pernah" class="form-radio-input">
+                                <label for="jawaban4-tidak-pernah">
+                                </label>Tidak Pernah
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="card card-success">
+                <div class="card-header">
+                  <h3 class="card-title">Akademik</h3>
+                </div>
+                  <div class="card-body">
+                    <div class="form-group">
+                      <div class="card-body">
+                    <label for="soal5" id="soal5" data-value= "0.8">5. Saya sering kesulitan memahami materi yang disampaikan oleh dosen</label><br>
+                    
+                   <div class="form-group clearfix">
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban5-sering" name="jawaban5" value="sering" class="form-radio-input">
+                                <label for="jawaban5-sering">
+                                </label>Sering
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban5-kadang" name="jawaban5" value="kadang" class="form-radio-input">
+                                <label for="jawaban5-kadang">
+                                </label>Kadang-kadang
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban5-tidak-pernah" name="jawaban5" value="tidak pernah" class="form-radio-input">
+                                <label for="jawaban5-tidak-pernah">
+                                </label>Tidak Pernah
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="card card-success">
+                <div class="card-header">
+                  <h3 class="card-title">Akademik</h3>
+                </div>
+                  <div class="card-body">
+                    <div class="form-group">
+                      <div class="card-body">
+                        <label for="soal6" id="soal6" data-value= "0">6. Saya sering merasa kesulitan dalam mencari literatur dan referensi</label><br>
+
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban6-sering" name="jawaban6" value="sering" class="form-radio-input">
+                                <label for="jawaban6-sering">
+                                </label>Sering
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban6-kadang" name="jawaban6" value="kadang" class="form-radio-input">
+                                <label for="jawaban6-kadang">
+                                </label>Kadang-kadang
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban6-tidak-pernah" name="jawaban6" value="tidak pernah" class="form-radio-input">
+                                <label for="jawaban6-tidak-pernah">
+                                </label>Tidak Pernah
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="card card-success">
+                <div class="card-header">
+                  <h3 class="card-title">Lingkungan</h3>
+                </div>
+                  <div class="card-body">
+                    <div class="form-group">
+                      <div class="card-body">
+                        <label for="soal7" id="soal7" data-value= "0.4">7. Saya sering tidak bisa bermain dan istirahat dengan leluasa</label><br>
+
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban7-sering" name="jawaban7" value="sering" class="form-radio-input">
+                                <label for="jawaban7-sering">
+                                </label>Sering
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban7-kadang" name="jawaban7" value="kadang" class="form-radio-input">
+                                <label for="jawaban7-kadang">
+                                </label>Kadang-kadang
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban7-tidak-pernah" name="jawaban7" value="tidak pernah" class="form-radio-input">
+                                <label for="jawaban7-tidak-pernah">
+                                </label>Tidak Pernah
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+
+            <div class="card card-success">
+                <div class="card-header">
+                  <h3 class="card-title">Lingkungan</h3>
+                </div>
+                  <div class="card-body">
+                    <div class="form-group">
+                      <div class="card-body">
+                        <label for="soal8" id="soal8" data-value= "0">8. saya sering merasa tidak nyaman dirumah karena berisik membuat tidak fokus</label><br>
+
+                        <div class="form-group clearfix">
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban8-sering" name="jawaban8" value="sering" class="form-radio-input">
+                                <label for="jawaban8-sering">
+                                </label>Sering
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban8-kadang" name="jawaban8" value="kadang" class="form-radio-input">
+                                <label for="jawaban8-kadang">
+                                </label>Kadang-kadang
+                            </div>
+                            <div class="icheck-primary  ">
+                                <input type="radio" id="jawaban8-tidak-pernah" name="jawaban8" value="tidak pernah" class="form-radio-input">
+                                <label for="jawaban8-tidak-pernah">
+                                </label>Tidak Pernah
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            
+
                 <!-- /.card-body -->
 
                 <div class="card-footer">

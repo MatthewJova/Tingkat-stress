@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = //'https://sia-unkartur.000webhostapp.com/';
-'http://localhost/ci/';
+'http://localhost/data_mining/';
 
 /*
 |--------------------------------------------------------------------------

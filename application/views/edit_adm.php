@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Dashboard Admin</h1>
+            <h1>Form Edit Diagnosa</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?= site_url('tes/') ?>">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard Admin</li>
+              <li class="breadcrumb-item"><a href="<?= site_url('crud/') ?>">Home</a></li>
+              <li class="breadcrumb-item active">Form Edit Diagnosa</li>
             </ol>
           </div>
         </div>
@@ -21,26 +21,51 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <!-- /.card-header -->
-              <div class="card-body">
-                <center>
-                  <div class="alert alert-success" role="alert">
-                    <i class="fa fa-users"></i> 
-                    Selamat Datang Sebagai <?=ucfirst($this->fungsi->user_login()->nama)?> <b>(<?=ucfirst($this->fungsi->user_login()->status)?>)
-                    </center>
-                </div>
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Form Edit</h3>
               </div>
-              <!-- /.card-body -->
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="post" action="<?php echo base_url(); ?>index.php/tes/update_adm" enctype="multipart/form-data">
+                <div class="card-body">
+                  <div class="form-group">
+                      <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $tingkat_stres['id']; ?>" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="nama">Nama</label>
+                    <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $tingkat_stres['nama']; ?>" placeholder="Masukkan Nama">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" value="<?php echo $tingkat_stres['email']; ?>" placeholder="Masukkan Nama">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="rata_rata_skor">Tingkat Stress</label>
+                    <input type="text" class="form-control" id="rata_rata_skor" name="rata_rata_skor" value="<?php echo $tingkat_stres['rata_rata_skor']; ?>" placeholder="Masukkan Nama" readonly>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="diagnosa">Diagnosa</label>
+                    <input type="text" class="form-control" id="tingkat_stres" name="tingkat_stres" value="<?php echo $tingkat_stres['tingkat_stres']; ?>" placeholder="Masukkan Nama" readonly>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
             </div>
             <!-- /.card -->
-          </div>
-          <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
+      </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>

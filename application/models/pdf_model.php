@@ -6,7 +6,7 @@ class pdf_model extends CI_Model
     public function getData()
     {
         // Kode untuk mengambil data dari database
-        $query = $this->db->get('mahasiswa');
+        $query = $this->db->get('tingkat_stres');
         return $query->result_array();
     }
 }

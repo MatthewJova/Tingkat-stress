@@ -59,9 +59,6 @@
 <div class="container">
         <div class="login-form">
             <!--<center><img src= "https://sia.unkartur.ac.id/uploads/061046/logoPT.png" alt="logo"></center><br>-->
-			<a href="<?= site_url('Auth/login') ?>">
-			  <center><img src="https://sia.unkartur.ac.id/uploads/061046/logoPT.png" alt="logo"></center><br><hr>
-			</a>
 			<h2>Login Page</h2>
 				<form action="<?php echo site_url('Auth/process_login'); ?>" method="post">
 					<div class="mb-3">
@@ -73,13 +70,13 @@
                     <input type="password" placeholder="Masukan Password" name="password" class="form-control" required>
                 </div>
                 <div class="mb-3">
-                    <input type="submit" name="login" value="Login" class="btn btn-primary">
+                    <input type="submit" name="login" value="Login" class="btn btn-block btn-dark btn-xs">
                 </div>
             </form>
 			<?php if(isset($error)): ?>
 				<p style="color: red;"><?php echo $error; ?></p>
 			<?php endif; ?>
-			<p>Belum memiliki akun? <a href="https://web.whatsapp.com/send/?phone=6285869103545&text&type=phone_number&app_absent=0">Silahkan Hubungi Kami</a></p>
+			<p>Belum memiliki akun? <a href="<?= site_url('Auth/add_akn') ?>">Silahkan Buat Akun</a></p>
 	 </div>
     </div>
 </body>

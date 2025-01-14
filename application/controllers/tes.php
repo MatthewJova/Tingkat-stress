@@ -1,77 +1,562 @@
 <?php
 
-class tes extends CI_Controller{
+class Tes extends CI_Controller{
 
-    public function index(){
-        $this->load->view('header');
-        $this->load->view('menu');
-        $this->load->view('hasil');
+ public function __construct(){
+        parent::__construct();
+        check_not_login();
+        $this->load->model('Tes_model');
     }
 
-    /*public function proses()
+    public function index(){
+        $level = $this->session->userdata('level');
+
+        if ($level == 3) {
+            check_not_login();
+            $this->load->view('header');
+            $this->load->view('menu');
+            $this->load->view('view_user');
+        } elseif($level == 1) {
+            $this->load->view('header');
+            $this->load->view('menu');
+            $this->load->view('view_admin');
+        }else{
+            //mbuh
+        }
+    }
+
+    public function tts(){
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('soal1');
+    }
+
+    public function vsoal2(){
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('soal2');
+    }
+
+    public function vsoal3(){
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('soal3');
+    }
+
+    public function vsoal4(){
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('soal4');
+    }
+
+    public function vsoal5(){
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('soal5');
+    }
+
+    public function vsoal6(){
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('soal6');
+    }
+
+    public function vsoal7(){
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('soal7');
+    }
+
+    public function vsoal8(){
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('soal8');
+    }
+
+    public function vsoal9(){
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('soal9');
+    }
+
+    public function vsoal10(){
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('soal10');
+    }
+
+    public function soal1() {
+        // Mulai session jika belum dimulai
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $jawaban_soal_1 = $this->input->post('jawaban_soal_1');
+
+            if ($jawaban_soal_1 == 'ya') {
+                $_SESSION['proses1'] = 1 * 0.8;
+                redirect('Tes/vsoal2');
+            } else if ($jawaban_soal_1 == 'mungkin') {
+                $_SESSION['proses1'] = 0.5 * 0.8;
+                redirect('Tes/vsoal2');
+            } else if ($jawaban_soal_1 == 'tidak') {
+                $_SESSION['proses1'] = -1 * 0.8;
+                redirect('Tes/vsoal2');
+            } else {
+                // mbuh
+            }
+        }
+    }
+
+    public function soal2() {
+        // Mulai session jika belum dimulai
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $proses1 = isset($_SESSION['proses1']) ? $_SESSION['proses1'] : 0;
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $jawaban_soal_2 = $this->input->post('jawaban_soal_2');
+
+            if ($jawaban_soal_2 == 'ya') {
+                $_SESSION['proses2'] = 1 * 0.4;
+                redirect('Tes/vsoal3');
+            } else if ($jawaban_soal_2 == 'mungkin') {
+                $_SESSION['proses2'] = 0.5 * 0.4;
+                redirect('Tes/vsoal3');
+            } else if ($jawaban_soal_2 == 'tidak') {
+                $_SESSION['proses2'] = -1 * 0.4;
+                redirect('Tes/vsoal3');
+            } else {
+                // mbuh
+            }
+        }
+    }
+
+    public function soal3() {
+        // Mulai session jika belum dimulai
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $proses1 = isset($_SESSION['proses1']) ? $_SESSION['proses1'] : 0;
+        $proses2 = isset($_SESSION['proses2']) ? $_SESSION['proses2'] : 0;
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $jawaban_soal_3 = $this->input->post('jawaban_soal_3');
+
+            if ($jawaban_soal_3 == 'ya') {
+                $_SESSION['proses3'] = 1 * 0.6;
+                redirect('Tes/vsoal4');
+            } else if ($jawaban_soal_3 == 'mungkin') {
+                $_SESSION['proses3'] = 0.5 * 0.6;
+                redirect('Tes/vsoal4');
+            } else if ($jawaban_soal_3 == 'tidak') {
+                $_SESSION['proses3'] = -1 * 0.6;
+                redirect('Tes/vsoal4');
+            } else {
+                // mbuh
+            }
+        }
+    }
+
+    public function soal4() {
+        // Mulai session jika belum dimulai
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $proses1 = isset($_SESSION['proses1']) ? $_SESSION['proses1'] : 0;
+        $proses2 = isset($_SESSION['proses2']) ? $_SESSION['proses2'] : 0;
+        $proses3 = isset($_SESSION['proses3']) ? $_SESSION['proses3'] : 0;
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $jawaban_soal_4 = $this->input->post('jawaban_soal_4');
+
+            if ($jawaban_soal_4 == 'ya') {
+                $_SESSION['proses4'] = 1 * 0.8;
+                redirect('Tes/vsoal5');
+            } else if ($jawaban_soal_4 == 'mungkin') {
+                $_SESSION['proses4'] = 0.5 * 0.8;
+                redirect('Tes/vsoal5');
+            }  else if ($jawaban_soal_4 == 'tidak') {
+                $_SESSION['proses4'] = -1 * 0.8;
+                redirect('Tes/vsoal5');
+            } else {
+                // mbuh
+            }
+        }
+    }
+
+    public function soal5() {
+        // Mulai session jika belum dimulai
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $proses1 = isset($_SESSION['proses1']) ? $_SESSION['proses1'] : 0;
+        $proses2 = isset($_SESSION['proses2']) ? $_SESSION['proses2'] : 0;
+        $proses3 = isset($_SESSION['proses3']) ? $_SESSION['proses3'] : 0;
+        $proses4 = isset($_SESSION['proses4']) ? $_SESSION['proses4'] : 0;
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $jawaban_soal_5 = $this->input->post('jawaban_soal_5');
+
+            if ($jawaban_soal_5 == 'ya') {
+                $_SESSION['proses5'] = 1 * 0.4;
+                redirect('Tes/vsoal6');
+            } else if ($jawaban_soal_5 == 'mungkin') {
+                $_SESSION['proses5'] = 0.5 * 0.4;
+                redirect('Tes/vsoal6');
+            } else if ($jawaban_soal_5 == 'tidak') {
+                $_SESSION['proses5'] = -1 * 0.4;
+                redirect('Tes/vsoal6');
+            } else {
+                // mbuh
+            }
+        }
+    }
+
+    public function soal6() {
+        // Mulai session jika belum dimulai
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $proses1 = isset($_SESSION['proses1']) ? $_SESSION['proses1'] : 0;
+        $proses2 = isset($_SESSION['proses2']) ? $_SESSION['proses2'] : 0;
+        $proses3 = isset($_SESSION['proses3']) ? $_SESSION['proses3'] : 0;
+        $proses4 = isset($_SESSION['proses4']) ? $_SESSION['proses4'] : 0;
+        $proses5 = isset($_SESSION['proses5']) ? $_SESSION['proses5'] : 0;
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $jawaban_soal_6 = $this->input->post('jawaban_soal_6');
+
+            if ($jawaban_soal_6 == 'ya') {
+                $_SESSION['proses6'] = 1 * 0.2;
+                redirect('Tes/vsoal7');
+            } else if ($jawaban_soal_6 == 'mungkin') {
+                $_SESSION['proses6'] = 0.5 * 0.2;
+                redirect('Tes/vsoal7');
+            } else if ($jawaban_soal_6 == 'tidak') {
+                $_SESSION['proses6'] = -1 * 0.2;
+                redirect('Tes/vsoal7');
+            } else {
+                // mbuh
+            }
+        }
+    }
+
+    public function soal7() {
+        // Mulai session jika belum dimulai
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $proses1 = isset($_SESSION['proses1']) ? $_SESSION['proses1'] : 0;
+        $proses2 = isset($_SESSION['proses2']) ? $_SESSION['proses2'] : 0;
+        $proses3 = isset($_SESSION['proses3']) ? $_SESSION['proses3'] : 0;
+        $proses4 = isset($_SESSION['proses4']) ? $_SESSION['proses4'] : 0;
+        $proses5 = isset($_SESSION['proses5']) ? $_SESSION['proses5'] : 0;
+        $proses6 = isset($_SESSION['proses6']) ? $_SESSION['proses6'] : 0;
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $jawaban_soal_7 = $this->input->post('jawaban_soal_7');
+
+            if ($jawaban_soal_7 == 'ya') {
+                $_SESSION['proses7'] = 1 * 0.6;
+                redirect('Tes/vsoal8');
+            } else if ($jawaban_soal_7 == 'mungkin') {
+                $_SESSION['proses7'] = 0.5 * 0.6;
+                redirect('Tes/vsoal8');
+            } else if ($jawaban_soal_7 == 'tidak') {
+                $_SESSION['proses7'] = -1 * 0.6;
+                redirect('Tes/vsoal8');
+            } else {
+                // mbuh
+            }
+        }
+    }
+
+    public function soal8() {
+        // Mulai session jika belum dimulai
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $proses1 = isset($_SESSION['proses1']) ? $_SESSION['proses1'] : 0;
+        $proses2 = isset($_SESSION['proses2']) ? $_SESSION['proses2'] : 0;
+        $proses3 = isset($_SESSION['proses3']) ? $_SESSION['proses3'] : 0;
+        $proses4 = isset($_SESSION['proses4']) ? $_SESSION['proses4'] : 0;
+        $proses5 = isset($_SESSION['proses5']) ? $_SESSION['proses5'] : 0;
+        $proses6 = isset($_SESSION['proses6']) ? $_SESSION['proses6'] : 0;
+        $proses7 = isset($_SESSION['proses7']) ? $_SESSION['proses7'] : 0;
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $jawaban_soal_8 = $this->input->post('jawaban_soal_8');
+
+            if ($jawaban_soal_8 == 'ya') {
+                $_SESSION['proses8'] = 1 * 0.4;
+                redirect('Tes/vsoal9');
+            } else if ($jawaban_soal_8 == 'mungkin') {
+                $_SESSION['proses8'] = 0.5 * 0.4;
+                redirect('Tes/vsoal9');
+            } else if ($jawaban_soal_8 == 'tidak') {
+                $_SESSION['proses8'] = -1 * 0.4;
+                redirect('Tes/vsoal9');
+            } else {
+                // mbuh
+            }
+        }
+    }
+
+    public function soal9() {
+        // Mulai session jika belum dimulai
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $proses1 = isset($_SESSION['proses1']) ? $_SESSION['proses1'] : 0;
+        $proses2 = isset($_SESSION['proses2']) ? $_SESSION['proses2'] : 0;
+        $proses3 = isset($_SESSION['proses3']) ? $_SESSION['proses3'] : 0;
+        $proses4 = isset($_SESSION['proses4']) ? $_SESSION['proses4'] : 0;
+        $proses5 = isset($_SESSION['proses5']) ? $_SESSION['proses5'] : 0;
+        $proses6 = isset($_SESSION['proses6']) ? $_SESSION['proses6'] : 0;
+        $proses7 = isset($_SESSION['proses7']) ? $_SESSION['proses7'] : 0;
+        $proses8 = isset($_SESSION['proses8']) ? $_SESSION['proses8'] : 0;
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $jawaban_soal_9 = $this->input->post('jawaban_soal_9');
+
+            if ($jawaban_soal_9 == 'ya') {
+                $_SESSION['proses9'] = 1 * 0;
+                redirect('Tes/vsoal10');
+            } else if ($jawaban_soal_9 == 'mungkin') {
+                $_SESSION['proses9'] = 0.5 * 0;
+                redirect('Tes/vsoal10');
+            } else if ($jawaban_soal_9 == 'tidak') {
+                $_SESSION['proses9'] = -1 * 0;
+                redirect('Tes/vsoal10');
+            } else {
+                // mbuh
+            }
+        }
+    }
+
+    public function soal10() {
+        // Mulai session jika belum dimulai
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $proses1 = isset($_SESSION['proses1']) ? $_SESSION['proses1'] : 0;
+        $proses2 = isset($_SESSION['proses2']) ? $_SESSION['proses2'] : 0;
+        $proses3 = isset($_SESSION['proses3']) ? $_SESSION['proses3'] : 0;
+        $proses4 = isset($_SESSION['proses4']) ? $_SESSION['proses4'] : 0;
+        $proses5 = isset($_SESSION['proses5']) ? $_SESSION['proses5'] : 0;
+        $proses6 = isset($_SESSION['proses6']) ? $_SESSION['proses6'] : 0;
+        $proses7 = isset($_SESSION['proses7']) ? $_SESSION['proses7'] : 0;
+        $proses8 = isset($_SESSION['proses8']) ? $_SESSION['proses8'] : 0;
+        $proses9 = isset($_SESSION['proses9']) ? $_SESSION['proses9'] : 0;
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $jawaban_soal_10 = $this->input->post('jawaban_soal_10');
+
+            if ($jawaban_soal_10 == 'ya') {
+                $_SESSION['proses10'] = 1 * 0.4;
+                redirect('Tes/proses');
+            } else if ($jawaban_soal_10 == 'mungkin') {
+                $_SESSION['proses10'] = 0.5 * 0.4;
+                redirect('Tes/proses');
+            } else if ($jawaban_soal_10 == 'tidak') {
+                $_SESSION['proses10'] = -1 * 0.4;
+                redirect('Tes/proses');
+            } else {
+                // mbuh
+            }
+        }
+    }
+
+    public function proses(){
+
+        // Mengambil nilai-nilai proses dari session
+        $proses1 = isset($_SESSION['proses1']) ? $_SESSION['proses1'] : 0;
+        $proses2 = isset($_SESSION['proses2']) ? $_SESSION['proses2'] : 0;
+        $proses3 = isset($_SESSION['proses3']) ? $_SESSION['proses3'] : 0;
+        $proses4 = isset($_SESSION['proses4']) ? $_SESSION['proses4'] : 0;
+        $proses5 = isset($_SESSION['proses5']) ? $_SESSION['proses5'] : 0;
+        $proses6 = isset($_SESSION['proses6']) ? $_SESSION['proses6'] : 0;
+        $proses7 = isset($_SESSION['proses7']) ? $_SESSION['proses7'] : 0;
+        $proses8 = isset($_SESSION['proses8']) ? $_SESSION['proses8'] : 0;
+        $proses9 = isset($_SESSION['proses9']) ? $_SESSION['proses9'] : 0;
+        $proses10 = isset($_SESSION['proses10']) ? $_SESSION['proses10'] : 0;
+
+        // Hitung nilai akhir
+        $hasil = $proses1 + $proses2 * (1 - $proses1);
+        $hasil2 = $hasil + $proses3 * (1 - $hasil);
+        $hasil3 = $hasil2 + $proses4 * (1 - $hasil2);
+        $hasil4 = $hasil3 + $proses5 * (1 - $hasil3);
+        $hasil5 = $hasil4 + $proses6 * (1 - $hasil4);
+        $hasil6 = $hasil5 + $proses7 * (1 - $hasil5);
+        $hasil7 = $hasil6 + $proses8 * (1 - $hasil6);
+        $hasil8 = $hasil7 + $proses9 * (1 - $hasil7);
+        $hasil9 = $hasil8 + $proses10 * (1 - $hasil8);
+        $persen = $hasil9 * 100;
+
+        if ($persen < 0) {
+            $persen = 0;
+        }
+        // Tentukan tingkat stres berdasarkan persentase
+        if ($persen == 0) {
+            $tingkat_stres = 'Tidak Stress';
+        } elseif ($persen > 0 && $persen <= 40) {
+            $tingkat_stres = 'Stress Ringan';
+        } elseif ($persen > 40 && $persen <= 80) {
+            $tingkat_stres = 'Stress Sedang';
+        } elseif ($persen > 80 && $persen <=100) {
+            $tingkat_stres = 'Stress Berat';
+        } else {
+            $tingkat_stres = 'Tidak Diketahui';
+        }
+
+        $nama = ucfirst($this->fungsi->user_login()->nama);
+        $email = ucfirst($this->fungsi->user_login()->email);
+
+        $data = array(
+            'nama' => $nama,
+            'email' => $email,
+            'rata_rata_skor' => $persen,
+            'tingkat_stres' => $tingkat_stres
+        );
+
+        $this->db->insert('tingkat_stres', $data);
+
+        redirect('Tes/hasil');
+    }
+
+    // public function hasil(){
+    //     $data['tingkat_stres'] = $this->Tes_model->get_hasil();
+    //     $this->load->view('header');
+    //     $this->load->view('menu');
+    //     $this->load->view('hasil', $data);
+    // }
+
+    public function hasil(){
+        // 1. Dapatkan nama pengguna yang login saat ini
+        $user_nama = $this->fungsi->user_login()->nama;
+
+        // 2. Gunakan nama pengguna tersebut sebagai kriteria dalam kueri database
+        $this->db->where('nama', $user_nama);
+        $query = $this->db->get('tingkat_stres');
+
+        // 3. Tampilkan hasil yang telah disaring
+        $data['tingkat_stres'] = $query->result();
+
+
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('hasil', $data);
+    }
+
+    public function hasil_admin(){
+       // 1. Kueri database untuk mengambil semua data dari tabel tingkat_stres
+        $query = $this->db->get('tingkat_stres');
+
+        // 2. Tampilkan hasil yang telah diambil
+        $data['tingkat_stres'] = $query->result();
+
+        // 3. Load view untuk menampilkan hasil
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('hasil_adm', $data);
+    }
+
+    public function edit_diagnosa($id){
+        $data['tingkat_stres'] = $this->Tes_model->get_stress_id($id);
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('edit_adm', $data);
+    }
+
+    public function update_adm(){
+        $id = $this->input->post('id');
+        $nama = $this->input->post('nama');
+        $email = $this->input->post('email');
+        $rata_rata_skor = $this->input->post('rata_rata_skor');
+        $tingkat_stres = $this->input->post('tingkat_stres');
+        
+        $data = array(
+            'nama' => $nama,
+            'email' => $email,
+            'rata_rata_skor' => $rata_rata_skor,
+            'tingkat_stres' => $tingkat_stres
+
+        );
+        
+        $this->Tes_model->update_adm($id, $data);
+        
+        redirect('Tes/hasil_admin');
+    }
+
+    public function delete_diagnosa($id){
+        $this->Tes_model->delete_adm($id);
+        
+        redirect('Tes/hasil_admin');
+    }
+
+    public function delete_diagnosa_user($id){
+        $this->Tes_model->delete_adm($id);
+        
+        redirect('Tes/hasil');
+    }
+
+    public function diagram_pie()
     {
-        $data = $this->input->post();
+        check_not_login();
+        $data['hasil'] = $this->Tes_model->tingkat_stress();
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('diagram', $data);
+    }
 
-        $jumlahSering = 0;
-        for ($i = 1; $i <= 10; $i++) {
-            if ($data['jawaban' . $i] == 'sering') {
-                $jumlahSering++;
-            }
-        }
+    public function view_akn() {
+        $data['status'] = $this->Tes_model->get_akun();
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('view_akun', $data);
+    }
 
-        $jumlahKadangKadang = 0;
-        for ($i = 1; $i <= 10; $i++) {
-            if ($data['jawaban' . $i] == 'kadang') {
-                $jumlahKadangKadang++;
-            }
-        }
-
-        $jumlahTidakPernah = 0;
-        for ($i = 1; $i <= 10; $i++) {
-            if ($data['jawaban' . $i] == 'tidak pernah') {
-                $jumlahTidakPernah++;
-            }
-        }
-
-        if ($jumlahSering > $jumlahKadangKadang) {
-            $tingkatStres = 'Tinggi';
-        } elseif ($jumlahKadangKadang > $jumlahSering) {
-            $tingkatStres = 'Sedang';
-        } else {
-            $tingkatStres = 'Tidak Stress';
-        }
-
-        $this->session->set_flashdata('tingkat_stres', $tingkatStres);
-        redirect('tes');
-        //redirect('tes', ['tingkat_stres' => $tingkatStres]);
-    }*/
-
-    public function proses() {
-        $data = $this->input->post();
-
-        $skorTotal = 0;
-        $bobot = ['sering' => 3, 'kadang' => 2, 'tidak pernah' => 1];
-        $jumlahJawaban = count($data) - 1; // Mengurangi 1 untuk mengesampingkan data non-jawaban
-
-        foreach ($data as $key => $value) {
-            if (strpos($key, 'jawaban') !== false) {
-                $skorTotal += $bobot[$value];
-            }
-        }
-
-        $rataRataSkor = $skorTotal / $jumlahJawaban;
-        $this->session->set_flashdata('rata', $rataRataSkor);
+    public function delete_akn($id) {
+        $this->Tes_model->delete_akn($id);
         
-        if ($rataRataSkor >= 2.5) {
-            $tingkatStres = 'Tinggi';
-        } elseif ($rataRataSkor >= 1.5) {
-            $tingkatStres = 'Sedang';
+        redirect('crud/view_akn');
+    }
+
+    public function d_stress() {
+         /*// Ambil id pengguna dari sesi
+        $id = $this->session->userdata('id');
+
+        // Mengambil rata-rata skor sesuai dengan id pengguna dari model
+        $data['rata_rata_skor'] = $this->Tes_model->get_rata_rata_skor_by_user_id($id);
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('diagram_stress', $data);*/
+
+        $user_nama = $this->fungsi->user_login()->nama;
+        $this->db->select('rata_rata_skor');
+        $this->db->where('nama', $user_nama);
+        $query = $this->db->get('tingkat_stres');
+
+        if ($query->num_rows() > 0) {
+            $data['rata_rata_skor'] = $query->row()->rata_rata_skor;
         } else {
-            $tingkatStres = 'Tidak Stress';
+            $data['rata_rata_skor'] = null;
         }
 
-        $this->session->set_flashdata('tingkat_stres', $tingkatStres);
-        
-        redirect('tes');
+        $this->load->view('header');
+        $this->load->view('menu');
+        $this->load->view('diagram_stress', $data);
     }
 }

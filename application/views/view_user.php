@@ -1,46 +1,21 @@
-<!-- Content Wrapper. Contains page content -->
+  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Akun</h1>
+            <h1>Dashboard User</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?= site_url('Tes/') ?>">Home</a></li>
-              <li class="breadcrumb-item active">Data Akun</li>
+              <li class="breadcrumb-item"><a href="<?= site_url('tes/') ?>">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard User</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
-    <script>
-      // Fungsi untuk melakukan pencarian
-      function searchTable() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("example2");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td");
-          for (var j = 0; j < td.length; j++) {
-            if (td[j]) {
-              txtValue = td[j].textContent || td[j].innerText;
-              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-                break;
-              } else {
-                tr[i].style.display = "none";
-              }
-            }
-          }
-        }
-      }
-    </script>
 
     <!-- Main content -->
     <section class="content">
@@ -50,59 +25,12 @@
             <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <form class="form-inline">
-                  <div class="input-group input-group-sm">
-                    <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Cari..." aria-label="Search" class= "form-control">
-                    <div class="input-group-append">
-                      <button class="btn btn-navbar" type="submit">
-                        <i class="fas fa-search"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-                <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Status</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Hapus</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                   <?php $i = 1; ?>
-                  <?php foreach ($status as $sts): ?>
-      						<tr>
-      							<td><?php echo $i; ?></td>
-      							<td><?php echo $sts['username']; ?></td>
-      							<td><?php echo $sts['password']; ?></td>
-      							<td><?php echo $sts['status']; ?></td>
-      							<td><?php echo $sts['nama']; ?></td>
-      							<td><?php echo $sts['email']; ?></td>
-      							<td>
-                      <center>
-                          <?php echo anchor('Tes/delete_akn/'.$sts['id'], '<div class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></div>'); ?>
-                      </center>
-      							</td>
-      						</tr>
-                  <?php $i++; ?>
-      					<?php endforeach; ?>
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>No</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Status</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Hapus</th>
-                  </tr>
-                  </tfoot>
-                </table>
+                <center>
+                  <div class="alert alert-success" role="alert">
+                    <i class="fa fa-users"></i> 
+                    Selamat Datang Sebagai <?=ucfirst($this->fungsi->user_login()->nama)?> <b>(<?=ucfirst($this->fungsi->user_login()->status)?>)
+                    </center>
+                </div>
               </div>
               <!-- /.card-body -->
             </div>
@@ -116,6 +44,7 @@
     </section>
     <!-- /.content -->
   </div>
+  <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">

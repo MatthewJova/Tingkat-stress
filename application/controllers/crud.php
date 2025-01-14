@@ -412,11 +412,6 @@ class crud extends CI_Controller {
 		redirect('crud/view_akn');
 	}
 
-	function tts(){
-		$this->load->view('header');
-		$this->load->view('menu');
-		$this->load->view('tts');
 	}
-}
 
 

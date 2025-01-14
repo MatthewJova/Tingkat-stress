@@ -3,6 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_model extends CI_Model {
 
+
+	public function register($data) {
+        return $this->db->insert('users', $data);
+    }
+
+    public function get_user($username) {
+        $query = $this->db->get_where('users', array('username' => $username));
+        return $query->row_array();
+    }
+
 	public function login($post)
 	{
 		$pass=$_POST['password'];
@@ -36,6 +46,25 @@ class User_model extends CI_Model {
 			return false; // Jika pengguna tidak ditemukan, kembalikan false
 		}
 	}
+
+	public function save_reset_token($email, $token) {
+        // Update kolom reset_token di dalam tabel users berdasarkan email
+        $this->db->where('email', $email);
+        $this->db->update('users', array('reset_token' => $token));
+    }
+
+	public function get_user_by_token($token) {
+        // Query ke database untuk mendapatkan data pengguna berdasarkan token
+        $query = $this->db->get_where('users', array('reset_token' => $token));
+
+        return $query->row();
+    }
+    
+    public function update_password($user_id, $password) {
+        // Update password pengguna berdasarkan user_id
+        $this->db->where('id', $user_id);
+        $this->db->update('users', array('password' => $password));
+    }
 }
 
 

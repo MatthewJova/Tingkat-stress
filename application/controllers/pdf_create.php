@@ -13,13 +13,15 @@ class pdf_create extends CI_Controller
 
     public function exportToPdf()
     {
-        // Mendapatkan data dari database (misalnya menggunakan model)
-        
-		$sql = "SELECT a.*, b.nama_agama, c.nama_status FROM mahasiswa a JOIN agama b ON a.id_agama = b.id_agama JOIN status_kawin c ON a.id_status = c.id_status";
-		$query = $this->db->query($sql);
-		$data['result'] = $query->result_array();
-		
-		//$data['result'] = $this->pdf_model->getData();
+        // 1. Dapatkan nama pengguna yang login saat ini
+        $user_nama = $this->fungsi->user_login()->nama;
+
+        // 2. Gunakan nama pengguna tersebut sebagai kriteria dalam kueri database
+        $this->db->where('nama', $user_nama);
+        $query = $this->db->get('tingkat_stres');
+
+        // Mendapatkan data dari database berdasarkan nama pengguna
+        $data['result'] = $query->result_array();
 
         // Memuat pustaka TCPDF
         $pdf = new TCPDF();
@@ -27,47 +29,96 @@ class pdf_create extends CI_Controller
         // Mengatur properti dokumen PDF
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('Jova');
-        $pdf->SetTitle('Data Mahasiswa');
-        $pdf->SetSubject('Data Mahasiswa');
+        $pdf->SetTitle('Diagnosa');
+        $pdf->SetSubject('Diagnosa');
 
         // Menambahkan halaman
         $pdf->AddPage();
 
         // Membuat konten PDF
-        $html = '<h1>Tabel Data Mahasiswa</h1><hr>';
-        $html .= '<table border="1">
-                    <tr>
-                        <th>NIM</th>
-                        <th>Nama</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Status</th>
-                        <th>Agama</th>
-                        <th>Hobi</th>
-                        <th>Foto</th>
-                    </tr>';
+        $html = '<h1 style="text-align: center;">Tabel Diagnosa</h1><hr>'; 
+        $html .= '<table border="1" style="width: 100%; border-collapse: collapse;">'; 
+        $html .= '<tr>
+                    <th style="padding: 8px; border: 1px solid #000;">No</th>
+                    <th style="padding: 8px; border: 1px solid #000;">Nama</th>
+                    <th style="padding: 8px; border: 1px solid #000;">Email</th>
+                    <th style="padding: 8px; border: 1px solid #000;">Tingkat Stress</th>
+                    <th style="padding: 8px; border: 1px solid #000;">Diagnosa</th>
+                  </tr>';
+        $no = 1; // inisialisasi nomor urut
         foreach ($data['result'] as $value) {
-			$status = isset($value['nama_status']) ? $value['nama_status'] : '';
-			$agama = isset($value['nama_agama']) ? $value['nama_agama'] : '';
-			
             $html .= '<tr>
-                        <td>'.$value['nim'].'</td>
-                        <td>'.$value['nama'].'</td>
-                        <td>'.$value['jenis_kelamin'].'</td>
-                        <td>'.tanggalIndonesia($value['tanggal_lahir']).'</td>
-                        <td>'.$status.'</td>
-						<td>'.$agama.'</td>
-                        <td>'.$value['hobi'].'</td>
-                        <td><img src="'.base_url('./uploads/' . $value['foto']).'" alt="Foto Mahasiswa" width="50" height="50"></td>
-                    </tr>';
+                        <td style="padding: 8px; border: 1px solid #000;">'.$no.'</td>
+                        <td style="padding: 8px; border: 1px solid #000;">'.$value['nama'].'</td>
+                        <td style="padding: 8px; border: 1px solid #000;">'.$value['email'].'</td>
+                        <td style="padding: 8px; border: 1px solid #000;">'.$value['rata_rata_skor'].'%</td>
+                        <td style="padding: 8px; border: 1px solid #000;">'.$value['tingkat_stres'].'</td>
+                      </tr>';
+            $no++; // tambahkan nomor urut setiap kali iterasi
         }
         $html .= '</table>';
-		
 
         // Menulis konten ke dokumen PDF
         $pdf->writeHTML($html, true, false, true, false, '');
 
         // Output file PDF ke browser
-        $pdf->Output('data_mahasiswa.pdf', 'I');
+        $pdf->Output('diagnosa.pdf', 'I');//ganti I dengan D agar otomatis Download
     }
+
+    public function exportToPdfadm(){
+        {
+        // Mendapatkan data dari database (misalnya menggunakan model)
+        
+        $sql = "SELECT id, nama, email, rata_rata_skor, tingkat_stres FROM tingkat_stres";
+
+        $query = $this->db->query($sql);
+        $data['result'] = $query->result_array();
+        
+        //$data['result'] = $this->pdf_model->getData();
+
+        // Memuat pustaka TCPDF
+        $pdf = new TCPDF();
+
+        // Mengatur properti dokumen PDF
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Jova');
+        $pdf->SetTitle('Diagnosa');
+        $pdf->SetSubject('Diagnosa');
+
+        // Menambahkan halaman
+        $pdf->AddPage();
+
+        // Membuat konten PDF
+        $html = '<h1 style="text-align: center;">Tabel Diagnosa</h1><hr>'; 
+        $html .= '<table border="1" style="width: 100%; border-collapse: collapse;">'; 
+        $html .= '<tr>
+                    <th style="padding: 8px; border: 1px solid #000;">No</th>
+                    <th style="padding: 8px; border: 1px solid #000;">Nama</th>
+                    <th style="padding: 8px; border: 1px solid #000;">Email</th>
+                    <th style="padding: 8px; border: 1px solid #000;">Tingkat Stress</th>
+                    <th style="padding: 8px; border: 1px solid #000;">Diagnosa</th>
+                  </tr>';
+        $no = 1; // inisialisasi nomor urut
+        foreach ($data['result'] as $value) {
+            $html .= '<tr>
+                        <td style="padding: 8px; border: 1px solid #000;">'.$no.'</td>
+                        <td style="padding: 8px; border: 1px solid #000;">'.$value['nama'].'</td>
+                        <td style="padding: 8px; border: 1px solid #000;">'.$value['email'].'</td>
+                        <td style="padding: 8px; border: 1px solid #000;">'.$value['rata_rata_skor'].'%</td>
+                        <td style="padding: 8px; border: 1px solid #000;">'.$value['tingkat_stres'].'</td>
+                      </tr>';
+            $no++; // tambahkan nomor urut setiap kali iterasi
+        }
+        $html .= '</table>';
+
+        
+
+        // Menulis konten ke dokumen PDF
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        // Output file PDF ke browser
+        $pdf->Output('diagnosa.pdf', 'I');//ganti I dengan D agar otomatis Download
+    }
+    }
+
 }
